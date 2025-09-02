@@ -1,102 +1,71 @@
-import Image from "next/image";
+"use client"
+
+import CustomCursor from "@/components/CustomCursor";
+import FloatingShapes from "@/components/FloatingShapes";
+import GlassNavigation from "@/components/GlassNavigation";
+import HeroSection from "@/components/HeroSection";
+import InteractiveStats from "@/components/InteractiveStats";
+import FeaturesSection from "@/components/FeaturesSection";
+import PricingSection from "@/components/pricing";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import { useParallax } from "@/hooks/use-parallax";
+import { Sparkles } from "lucide-react";
+import GlassButton from "@/components/GlassButton";
+import { PricingTable } from "@clerk/nextjs";
+
 
 export default function Home() {
+  const scrollY = useParallax();
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="pt-59 ">
+      <CustomCursor />
+      <FloatingShapes />
+      {/* <GlassNavigation /> */}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+      <main>
+        <HeroSection />
+        <div className="py-12 relative"></div>
+        <InteractiveStats />
+        <FeaturesSection />
+        <PricingSection />
+        {/* <PricingTable/> */}
+        
+
+        {/* CTA Section */}
+        <section className="py-32 relative">
+          <div className="max-w-4xl mx-auto text-center px-6">
+            <div 
+              className="backdrop-blur-xl bg-gradient-to-r from-white/10 to-white/5 border border-white/20 rounded-3xl p-12"
+              style={{ transform: `translateY(${scrollY * 0.05}px)` }}
+            >
+              <h2 className="text-5xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                  Ready to Transform Reality?
+                </span>
+              </h2>
+              <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto">
+                Join thousands of creators who are already shaping the future of digital art with neural precision.
+              </p>
+              <GlassButton variant="primary" size="lg">
+                Start Your Journey <Sparkles className="w-6 h-6" />
+              </GlassButton>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="py-16 border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <div className="text-3xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              NeuralEdit
+            </span>
+          </div>
+          <p className="text-white/60">
+            © 2025 NeuralEdit. Redefining the boundaries of digital creativity.
+          </p>
+        </div>
       </footer>
     </div>
   );
