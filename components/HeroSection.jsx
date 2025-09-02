@@ -52,14 +52,14 @@ export default function HeroSection() {
             Experience the Magic
           </Button>
           </Link>
-          <Button
+          {/* <Button
             size="lg"
             variant="outline"
             className="border-white/30 text-white hover:bg-white/10 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 bg-transparent"
             data-cursor-hover
           >
             Watch Demo
-          </Button>
+          </Button> */}
         </div>
 
         {/* 3D Demo Interface */}

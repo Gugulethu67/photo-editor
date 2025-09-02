@@ -7,7 +7,7 @@ import HeroSection from "@/components/HeroSection";
 import InteractiveStats from "@/components/InteractiveStats";
 import FeaturesSection from "@/components/FeaturesSection";
 import PricingSection from "@/components/pricing";
-import AnimatedCounter from "@/components/AnimatedCounter";
+//import AnimatedCounter from "@/components/AnimatedCounter";
 import { useParallax } from "@/hooks/use-parallax";
 import { Sparkles } from "lucide-react";
 import GlassButton from "@/components/GlassButton";
@@ -28,7 +28,7 @@ export default function Home() {
         <InteractiveStats />
         <FeaturesSection />
         <PricingSection />
-        {/* <PricingTable/> */}
+         <PricingTable/> 
         
 
         {/* CTA Section */}

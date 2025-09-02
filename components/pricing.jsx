@@ -235,7 +235,7 @@ export default function CustomPricingSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {/* <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {plans.map((plan, index) => (
             <PricingCard 
               key={plan.id} 
@@ -243,7 +243,7 @@ export default function CustomPricingSection() {
               delay={index * 200}
             />
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
