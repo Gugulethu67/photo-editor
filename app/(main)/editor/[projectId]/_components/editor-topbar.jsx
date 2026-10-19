@@ -420,7 +420,7 @@ export function EditorTopBar({ project }) {
               variant="ghost"
               size="sm"
               onClick={handleBackToDashboard}
-              className="text-white hover:text-gray-300"
+              className="text-slate-900 hover:text-emerald-700"
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               All Projects
@@ -499,24 +499,24 @@ export function EditorTopBar({ project }) {
 
               <DropdownMenuContent
                 align="end"
-                className="w-56 bg-slate-800 border-slate-700"
+                className="w-56 bg-white border-emerald-100"
               >
-                <div className="px-3 py-2 text-sm text-white/70">
+                <div className="px-3 py-2 text-sm text-slate-600">
                   Export Resolution: {project.width} × {project.height}px
                 </div>
 
-                <DropdownMenuSeparator className="bg-slate-700" />
+                <DropdownMenuSeparator className="bg-emerald-50" />
 
                 {EXPORT_FORMATS.map((config, index) => (
                   <DropdownMenuItem
                     key={index}
                     onClick={() => handleExport(config)}
-                    className="text-white hover:bg-slate-700 cursor-pointer flex items-center gap-2"
+                    className="text-slate-900 hover:bg-emerald-50 cursor-pointer flex items-center gap-2"
                   >
                     <FileImage className="h-4 w-4" />
                     <div className="flex-1">
                       <div className="font-medium">{config.label}</div>
-                      <div className="text-xs text-white/50">
+                      <div className="text-xs text-slate-500">
                         {config.format} • {Math.round(config.quality * 100)}%
                         quality
                       </div>
@@ -524,15 +524,15 @@ export function EditorTopBar({ project }) {
                   </DropdownMenuItem>
                 ))}
 
-                <DropdownMenuSeparator className="bg-slate-700" />
+                <DropdownMenuSeparator className="bg-emerald-50" />
 
                 {/* Export Limit Info for Free Users */}
                 {isFree && (
-                  <div className="px-3 py-2 text-xs text-white/50">
+                  <div className="px-3 py-2 text-xs text-slate-500">
                     Free Plan: {user?.exportsThisMonth || 0}/20 exports this
                     month
                     {(user?.exportsThisMonth || 0) >= 20 && (
-                      <div className="text-amber-400 mt-1">
+                      <div className="text-amber-600 mt-1">
                         Upgrade to Pro for unlimited exports
                       </div>
                     )}
@@ -560,14 +560,14 @@ export function EditorTopBar({ project }) {
                   onClick={() => handleToolChange(tool.id)}
                   className={`gap-2 relative ${
                     isActive
-                      ? "bg-blue-600 text-white hover:bg-blue-700"
-                      : "text-white hover:text-gray-300 hover:bg-gray-100"
+                      ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                      : "text-slate-900 hover:text-emerald-700 hover:bg-emerald-50"
                   } ${!hasToolAccess ? "opacity-60" : ""}`}
                 >
                   <Icon className="h-4 w-4" />
                   {tool.label}
                   {tool.proOnly && !hasToolAccess && (
-                    <Lock className="h-3 w-3 text-amber-400" />
+                    <Lock className="h-3 w-3 text-amber-600" />
                   )}
                 </Button>
               );
@@ -581,7 +581,7 @@ export function EditorTopBar({ project }) {
               <Button
                 variant="ghost"
                 size="sm"
-                className={`text-white ${!canUndo ? "opacity-50 cursor-not-allowed" : "hover:bg-slate-700"}`}
+                className={`text-slate-900 ${!canUndo ? "opacity-50 cursor-not-allowed" : "hover:bg-emerald-50"}`}
                 onClick={handleUndo}
                 disabled={!canUndo || isUndoRedoOperation}
                 title={`Undo (${undoStack.length - 1} actions available)`}
@@ -591,7 +591,7 @@ export function EditorTopBar({ project }) {
               <Button
                 variant="ghost"
                 size="sm"
-                className={`text-white ${!canRedo ? "opacity-50 cursor-not-allowed" : "hover:bg-slate-700"}`}
+                className={`text-slate-900 ${!canRedo ? "opacity-50 cursor-not-allowed" : "hover:bg-emerald-50"}`}
                 onClick={handleRedo}
                 disabled={!canRedo || isUndoRedoOperation}
                 title={`Redo (${redoStack.length} actions available)`}

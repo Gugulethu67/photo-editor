@@ -1,4 +1,3 @@
-// components/GlassButton.jsx
 import React from "react";
 import clsx from "clsx";
 
@@ -10,11 +9,13 @@ export default function GlassButton({
   ...props
 }) {
   const baseStyles =
-    "rounded-2xl backdrop-blur-md bg-purple-500/30 border border-white/20 text-white shadow-lg hover:bg-white/20 transition-all flex items-center justify-center gap-2";
+    "rounded-2xl font-semibold shadow-lg transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2";
 
   const variants = {
-    primary: "bg-blue-500/20 hover:bg-blue-500/30 text-blue-200",
-    secondary: "bg-purple-500/20 hover:bg-purple-500/30 text-purple-200",
+    primary:
+      "bg-gradient-to-r from-emerald-500 to-green-600 text-white shadow-emerald-500/25 hover:shadow-xl hover:shadow-emerald-500/30",
+    secondary:
+      "bg-white text-emerald-700 border border-emerald-200 hover:bg-emerald-50 hover:border-emerald-300",
   };
 
   const sizes = {

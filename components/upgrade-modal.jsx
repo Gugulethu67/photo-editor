@@ -26,25 +26,24 @@ export function UpgradeModal({ isOpen, onClose, restrictedTool, reason }) {
   // Get the upgrade options based on current plan
   const upgradeOptions = getUpgradeOptions()
 
-  console.log("UpgradeModal render:", { isOpen, restrictedTool, reason }) // Debug log
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-4xl bg-slate-800 border-white/10 max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-4xl bg-white border-emerald-100 max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <div className="flex items-center gap-3">
             <Crown className="h-6 w-6 text-yellow-500" />
-            <DialogTitle className="text-2xl font-bold text-white">Upgrade to Unlock More</DialogTitle>
+            <DialogTitle className="text-2xl font-bold text-slate-900">Upgrade to Unlock More</DialogTitle>
           </div>
         </DialogHeader>
 
         <div className="space-y-6">
           {/* Restriction Message */}
           {restrictedTool && (
-            <Alert className="bg-amber-500/10 border-amber-500/20">
-              <Zap className="h-5 w-5 text-amber-400" />
-              <AlertDescription className="text-amber-300/80">
-                <div className="font-semibold text-amber-400 mb-1">{getToolName(restrictedTool)} - Premium Feature</div>
+            <Alert className="bg-amber-50 border-amber-200">
+              <Zap className="h-5 w-5 text-amber-600" />
+              <AlertDescription className="text-amber-800/80">
+                <div className="font-semibold text-amber-600 mb-1">{getToolName(restrictedTool)} - Premium Feature</div>
                 {reason ||
                   `${getToolName(restrictedTool)} is only available on paid plans. Upgrade now to unlock this powerful feature and more.`}
               </AlertDescription>
@@ -54,31 +53,31 @@ export function UpgradeModal({ isOpen, onClose, restrictedTool, reason }) {
           {/* Custom Pricing Display (fallback if Clerk PricingTable fails) */}
           {upgradeOptions.length > 0 && (
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-white text-center mb-6">Choose Your Plan</h3>
+              <h3 className="text-xl font-semibold text-slate-900 text-center mb-6">Choose Your Plan</h3>
 
               <div className="grid md:grid-cols-2 gap-6">
                 {upgradeOptions.map((option, index) => (
                   <div
                     key={option.plan}
                     className={`border-2 rounded-xl p-6 ${
-                      index === 0 ? "border-cyan-400 bg-cyan-400/5" : "border-purple-400 bg-purple-400/5"
+                      index === 0 ? "border-emerald-500 bg-emerald-500/5" : "border-green-500 bg-green-500/5"
                     }`}
                   >
                     <div className="text-center mb-6">
-                      <h4 className={`text-2xl font-bold mb-2 ${index === 0 ? "text-cyan-400" : "text-purple-400"}`}>
+                      <h4 className={`text-2xl font-bold mb-2 ${index === 0 ? "text-emerald-600" : "text-green-700"}`}>
                         {option.plan === "creator_paid" ? "Creator Pro" : "Professional"}
                       </h4>
-                      <div className="text-3xl font-bold text-white">
+                      <div className="text-3xl font-bold text-slate-900">
                         {option.price}
-                        <span className="text-lg font-normal text-white/70">/{option.billing}</span>
+                        <span className="text-lg font-normal text-slate-600">/{option.billing}</span>
                       </div>
                     </div>
 
                     <ul className="space-y-3 mb-6">
                       {option.benefits.map((benefit, i) => (
-                        <li key={i} className="flex items-start gap-2 text-white/90">
+                        <li key={i} className="flex items-start gap-2 text-slate-700">
                           <div
-                            className={`w-1.5 h-1.5 rounded-full mt-2 ${index === 0 ? "bg-cyan-400" : "bg-purple-400"}`}
+                            className={`w-1.5 h-1.5 rounded-full mt-2 ${index === 0 ? "bg-emerald-500" : "bg-green-600"}`}
                           />
                           <span className="text-sm">{benefit}</span>
                         </li>
@@ -88,7 +87,7 @@ export function UpgradeModal({ isOpen, onClose, restrictedTool, reason }) {
                     <Button
                       variant={index === 0 ? "default" : "primary"}
                       className={`w-full ${
-                        index === 0 ? "bg-cyan-500 hover:bg-cyan-600" : "bg-purple-500 hover:bg-purple-600"
+                        index === 0 ? "bg-emerald-600 hover:bg-emerald-700" : "bg-green-600 hover:bg-green-700"
                       }`}
                       onClick={() => {
                         // Handle upgrade logic here
@@ -111,7 +110,7 @@ export function UpgradeModal({ isOpen, onClose, restrictedTool, reason }) {
         </div>
 
         <DialogFooter className="justify-center">
-          <Button variant="ghost" onClick={onClose} className="text-white/70 hover:text-white">
+          <Button variant="ghost" onClick={onClose} className="text-slate-600 hover:text-emerald-700">
             Maybe Later
           </Button>
         </DialogFooter>
