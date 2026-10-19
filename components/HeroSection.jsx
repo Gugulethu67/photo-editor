@@ -56,7 +56,7 @@ export default function HeroSection() {
             <Button
               variant="primary"
               size="lg"
-              className="px-8 py-6 rounded-xl font-semibold text-lg hover:scale-105"
+              className="h-auto px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105"
               data-cursor-hover
             >
               Experience the Magic
