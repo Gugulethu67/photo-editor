@@ -178,7 +178,7 @@ export function TextControls() {
   if (!canvasEditor) {
     return (
       <div className="p-4">
-        <p className="text-white/70 text-sm">Canvas not ready</p>
+        <p className="text-slate-600 text-sm">Canvas not ready</p>
       </div>
     );
   }
@@ -188,8 +188,8 @@ export function TextControls() {
       {/* Add Text Button */}
       <div className="space-y-4">
         <div>
-          <h3 className="text-sm font-medium text-white mb-2">Add Text</h3>
-          <p className="text-xs text-white/70 mb-4">
+          <h3 className="text-sm font-medium text-slate-900 mb-2">Add Text</h3>
+          <p className="text-xs text-slate-600 mb-4">
             Click to add editable text to your canvas
           </p>
         </div>
@@ -201,18 +201,18 @@ export function TextControls() {
 
       {/* Text Editing Controls - Show only when text is selected */}
       {selectedText && (
-        <div className="border-t border-white/10 pt-6">
-          <h3 className="text-sm font-medium text-white mb-4">
+        <div className="border-t border-emerald-100 pt-6">
+          <h3 className="text-sm font-medium text-slate-900 mb-4">
             Edit Selected Text
           </h3>
 
           {/* Font Family */}
           <div className="space-y-2 mb-4">
-            <label className="text-xs text-white/70">Font Family</label>
+            <label className="text-xs text-slate-600">Font Family</label>
             <select
               value={fontFamily}
               onChange={(e) => applyFontFamily(e.target.value)}
-              className="w-full px-3 py-2 bg-slate-700 border border-white/20 rounded text-white text-sm"
+              className="w-full px-3 py-2 bg-emerald-50 border border-emerald-200 rounded text-slate-900 text-sm"
             >
               {FONT_FAMILIES.map((font) => (
                 <option key={font} value={font}>
@@ -225,8 +225,8 @@ export function TextControls() {
           {/* Font Size Slider */}
           <div className="space-y-2 mb-4">
             <div className="flex justify-between items-center">
-              <label className="text-xs text-white/70">Font Size</label>
-              <span className="text-xs text-white/70">{fontSize}px</span>
+              <label className="text-xs text-slate-600">Font Size</label>
+              <span className="text-xs text-slate-600">{fontSize}px</span>
             </div>
             <Slider
               value={[fontSize]}
@@ -240,7 +240,7 @@ export function TextControls() {
 
           {/* Text Alignment */}
           <div className="space-y-2 mb-4">
-            <label className="text-xs text-white/70">Text Alignment</label>
+            <label className="text-xs text-slate-600">Text Alignment</label>
             <div className="grid grid-cols-4 gap-1">
               {[
                 ["left", AlignLeft],
@@ -263,26 +263,26 @@ export function TextControls() {
 
           {/* Text Color */}
           <div className="space-y-2 mb-4">
-            <label className="text-xs text-white/70">Text Color</label>
+            <label className="text-xs text-slate-600">Text Color</label>
             <div className="flex gap-2">
               <input
                 type="color"
                 value={textColor}
                 onChange={(e) => applyTextColor(e.target.value)}
-                className="w-10 h-10 rounded border border-white/20 bg-transparent cursor-pointer"
+                className="w-10 h-10 rounded border border-emerald-200 bg-transparent cursor-pointer"
               />
               <Input
                 value={textColor}
                 onChange={(e) => applyTextColor(e.target.value)}
                 placeholder="#000000"
-                className="flex-1 bg-slate-700 border-white/20 text-white text-sm"
+                className="flex-1 bg-emerald-50 border-emerald-200 text-slate-900 text-sm"
               />
             </div>
           </div>
 
           {/* Text Formatting */}
           <div className="space-y-2 mb-4">
-            <label className="text-xs text-white/70">Formatting</label>
+            <label className="text-xs text-slate-600">Formatting</label>
             <div className="flex gap-2">
               <Button
                 onClick={() => toggleFormat("bold")}
@@ -328,8 +328,8 @@ export function TextControls() {
       )}
 
       {/* Instructions */}
-      <div className="bg-slate-700/30 rounded-lg p-3">
-        <p className="text-xs text-white/70">
+      <div className="bg-emerald-50/60 rounded-lg p-3">
+        <p className="text-xs text-slate-600">
           <strong>Double-click</strong> any text to edit it directly on canvas.
           <br />
           <strong>Select</strong> text to see formatting options here.

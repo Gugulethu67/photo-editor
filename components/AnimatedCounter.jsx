@@ -33,7 +33,7 @@ export default function AnimatedCounter({ target, suffix = "", duration = 2000 }
   return (
     <div
       ref={ref}
-      className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+      className="text-4xl font-bold bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent"
     >
       {count.toLocaleString()}
       {suffix}

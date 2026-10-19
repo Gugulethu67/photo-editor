@@ -149,7 +149,7 @@ export function ResizeControls({ project }) {
   if (!canvasEditor || !project) {
     return (
       <div className="p-4">
-        <p className="text-white/70 text-sm">Canvas not ready</p>
+        <p className="text-slate-600 text-sm">Canvas not ready</p>
       </div>
     );
   }
@@ -159,9 +159,9 @@ export function ResizeControls({ project }) {
   return (
     <div className="space-y-6">
       {/* Current Size Display */}
-      <div className="bg-slate-700/30 rounded-lg p-3">
-        <h4 className="text-sm font-medium text-white mb-2">Current Size</h4>
-        <div className="text-xs text-white/70">
+      <div className="bg-emerald-50/60 rounded-lg p-3">
+        <h4 className="text-sm font-medium text-slate-900 mb-2">Current Size</h4>
+        <div className="text-xs text-slate-600">
           {project.width} × {project.height} pixels
         </div>
       </div>
@@ -169,12 +169,12 @@ export function ResizeControls({ project }) {
       {/* Manual Size Input */}
       <div className="space-y-4">
         <div className="flex items-center justify-between mb-2">
-          <h3 className="text-sm font-medium text-white">Custom Size</h3>
+          <h3 className="text-sm font-medium text-slate-900">Custom Size</h3>
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setLockAspectRatio(!lockAspectRatio)}
-            className="text-white/70 hover:text-white p-1"
+            className="text-slate-600 hover:text-emerald-700 p-1"
           >
             {lockAspectRatio ? (
               <Lock className="h-4 w-4" />
@@ -186,31 +186,31 @@ export function ResizeControls({ project }) {
 
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="text-xs text-white/70 mb-1 block">Width</label>
+            <label className="text-xs text-slate-600 mb-1 block">Width</label>
             <Input
               type="number"
               value={newWidth}
               onChange={(e) => handleWidthChange(e.target.value)}
               min="100"
               max="5000"
-              className="bg-slate-700 border-white/20 text-white"
+              className="bg-emerald-50 border-emerald-200 text-slate-900"
             />
           </div>
           <div>
-            <label className="text-xs text-white/70 mb-1 block">Height</label>
+            <label className="text-xs text-slate-600 mb-1 block">Height</label>
             <Input
               type="number"
               value={newHeight}
               onChange={(e) => handleHeightChange(e.target.value)}
               min="100"
               max="5000"
-              className="bg-slate-700 border-white/20 text-white"
+              className="bg-emerald-50 border-emerald-200 text-slate-900"
             />
           </div>
         </div>
 
         <div className="flex items-center justify-between text-xs">
-          <span className="text-white/70">
+          <span className="text-slate-600">
             {lockAspectRatio ? "Aspect ratio locked" : "Free resize"}
           </span>
         </div>
@@ -218,7 +218,7 @@ export function ResizeControls({ project }) {
 
       {/* Aspect Ratio Presets */}
       <div className="space-y-3">
-        <h3 className="text-sm font-medium text-white">Aspect Ratios</h3>
+        <h3 className="text-sm font-medium text-slate-900">Aspect Ratios</h3>
         <div className="grid grid-cols-1 gap-2 max-h-60 overflow-y-auto">
           {ASPECT_RATIOS.map((aspectRatio) => {
             const dimensions = calculateAspectRatioDimensions(
@@ -234,7 +234,7 @@ export function ResizeControls({ project }) {
                 onClick={() => applyAspectRatio(aspectRatio)}
                 className={`justify-between h-auto py-2 ${
                   selectedPreset === aspectRatio.name
-                    ? "bg-cyan-500 hover:bg-cyan-600"
+                    ? "bg-emerald-600 hover:bg-emerald-700"
                     : "text-left"
                 }`}
               >
@@ -254,20 +254,20 @@ export function ResizeControls({ project }) {
 
       {/* New Size Preview */}
       {hasChanges && (
-        <div className="bg-slate-700/30 rounded-lg p-3">
-          <h4 className="text-sm font-medium text-white mb-2">
+        <div className="bg-emerald-50/60 rounded-lg p-3">
+          <h4 className="text-sm font-medium text-slate-900 mb-2">
             New Size Preview
           </h4>
-          <div className="text-xs text-white/70">
+          <div className="text-xs text-slate-600">
             <div>
               New Canvas: {newWidth} × {newHeight} pixels
             </div>
-            <div className="text-cyan-400">
+            <div className="text-emerald-600">
               {newWidth > project.width || newHeight > project.height
                 ? "Canvas will be expanded"
                 : "Canvas will be cropped"}
             </div>
-            <div className="text-white/50 mt-1">
+            <div className="text-slate-500 mt-1">
               Objects will maintain their current size and position
             </div>
           </div>
@@ -286,8 +286,8 @@ export function ResizeControls({ project }) {
       </Button>
 
       {/* Instructions */}
-      <div className="bg-slate-700/30 rounded-lg p-3">
-        <p className="text-xs text-white/70">
+      <div className="bg-emerald-50/60 rounded-lg p-3">
+        <p className="text-xs text-slate-600">
           <strong>Resize Canvas:</strong> Changes canvas dimensions.
           <br />
           <strong>Aspect Ratios:</strong> Smart sizing based on your current

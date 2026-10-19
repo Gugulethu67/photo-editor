@@ -27,7 +27,7 @@ export default function CustomCursor() {
 
   return (
     <div
-      className={`fixed w-5 h-5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full pointer-events-none z-50 transition-transform duration-150 ${
+      className={`hidden md:block fixed w-5 h-5 bg-gradient-to-r from-emerald-400 to-green-500 opacity-70 rounded-full pointer-events-none z-50 transition-transform duration-150 ${
         isHovering ? "scale-150" : "scale-100"
       }`}
       style={{

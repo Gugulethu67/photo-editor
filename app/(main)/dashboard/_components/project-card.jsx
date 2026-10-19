@@ -33,19 +33,19 @@ export default function ProjectCard({ project, onEdit }) {
   };
 
   return (
-    <Card className="py-0 group relative bg-slate-800/50 overflow-hidden hover:border-white/20 transition-all hover:transform hover:scale-[1.02]">
+    <Card className="py-0 group relative bg-white overflow-hidden shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-500/10">
       {/* Thumbnail */}
-      <div className="aspect-video bg-slate-700 relative overflow-hidden">
+      <div className="aspect-video bg-emerald-50 relative overflow-hidden">
         {project.thumbnailUrl && (
           <img
             src={project.thumbnailUrl}
             alt={project.title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
 
         {/* Hover Actions */}
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+        <div className="absolute inset-0 bg-emerald-950/50 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
           <Button variant="glass" size="sm" onClick={onEdit} className="gap-2">
             <Edit className="h-4 w-4" />
             Edit
@@ -54,7 +54,7 @@ export default function ProjectCard({ project, onEdit }) {
             variant="glass"
             size="sm"
             onClick={handleDelete}
-            className="gap-2 text-red-400 hover:text-red-300"
+            className="gap-2 text-red-600 hover:text-red-700"
             disabled={isLoading}
           >
             <Trash2 className="h-4 w-4" />
@@ -65,15 +65,15 @@ export default function ProjectCard({ project, onEdit }) {
 
       {/* Project Info */}
       <CardContent className="pb-6">
-        <h3 className="font-semibold text-white mb-1 truncate">
+        <h3 className="font-semibold text-slate-900 mb-1 truncate">
           {project.title}
         </h3>
 
-        <div className="flex items-center justify-between text-sm text-white/70">
+        <div className="flex items-center justify-between text-sm text-slate-600">
           <span>Updated {lastUpdated}</span>
           <Badge
             variant="secondary"
-            className="text-xs bg-slate-700 text-white/70"
+            className="text-xs bg-emerald-50 text-slate-600"
           >
             {project.width} × {project.height}
           </Badge>
